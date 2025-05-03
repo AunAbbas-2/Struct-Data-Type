@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+struct Vector2D
+{
+    double x;
+    double y;
+};
+
+Vector2D scalar(const Vector2D &v, double s)
+{
+    Vector2D result;
+    result.x = s * v.x;
+    result.y = s * v.y;
+    return result;
+}
+
+void print_Scalar(const Vector2D &v)
+{
+    cout << v.x << " " << v.y << " " << endl;
+}
+
+int main()
+{
+    Vector2D v;
+    double s;
+    s = 2.5;
+    v.x = 2.5;
+    v.y = -3.5;
+
+    Vector2D scalar_mult = scalar(v, s);
+    print_Scalar(scalar_mult);
+    return 0;
+}
