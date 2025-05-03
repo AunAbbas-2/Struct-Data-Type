@@ -1,0 +1,29 @@
+#include<iostream>
+#include<vector>
+#include<cmath>
+using namespace std;
+
+struct Vector2D{
+    double x;
+    double y;
+};
+
+Vector2D squareroot(const Vector2D& v){
+    Vector2D result;
+    result.x = v.x * v.x;
+    result.y = v.y * v.y;
+    return result;
+}
+
+void print_squareroot(const Vector2D& v){
+    cout<<v.x<<" "<<v.y<<" "<<endl;
+}
+
+int main(){
+    Vector2D v;
+    v.x = 2.5;
+    v.y = 3.5;
+    Vector2D square_root = squareroot(v);
+    print_squareroot(square_root);
+    return 0;
+}
