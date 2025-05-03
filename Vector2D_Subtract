@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cmath>
+#include<vector>
+using namespace std;
+
+struct Vector2D{
+    double x;
+    double y;
+};
+
+Vector2D subtract(const Vector2D& a, const Vector2D& b){
+    Vector2D result;
+    result.x = a.x - b.x;
+    result.y = a.y - b.y;
+    return result;
+}
+
+void print_diff(const Vector2D& v){
+    cout<<v.x<<" "<<v.y<<" "<<endl;
+}
+
+int main(){
+    Vector2D a;
+    Vector2D b;
+    a.x = 2.5;
+    a.y = 3.5;
+    b.x = 1.5;
+    b.y = -5.5;
+
+    Vector2D diff = subtract(a,b);
+    print_diff(diff);
+    return 0;
+}
