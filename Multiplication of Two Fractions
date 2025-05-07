@@ -1,0 +1,53 @@
+#include<iostream>
+#include<vector>
+#include<cmath>
+#include<numeric>
+using namespace std;
+
+long long gcd(long long a, long long b){
+    if (b==0){
+        return a;
+    }
+    return gcd(b, a % b);
+}
+struct Fraction{
+    long long numerator = 0;
+    long long denominator = 1;
+    long long final_fraction_numerator = 0;
+    long long final_fraction_denominator = 1;
+    long long gcd_ans = 1;
+};
+
+Fraction Multiply(const Fraction& a, const Fraction& b) {
+    Fraction result;
+    if(a.denominator == 0 || b.denominator == 0){
+        cout<<"Error: One of the denominators is zero!"<<endl;
+        return result;
+    }
+
+        result.numerator = a.numerator * b.numerator;
+        result.denominator = a.denominator * b.denominator;
+        result.gcd_ans = gcd(result.numerator,result.denominator);
+        result.final_fraction_numerator = result.numerator / result.gcd_ans;
+        result.final_fraction_denominator = result.denominator / result.gcd_ans;
+    
+    
+    return result;
+}
+
+void print_frac_Mult(const Fraction &c){
+    cout<< c.final_fraction_numerator << " / " << c.final_fraction_denominator <<endl;
+}
+
+int main(){
+    Fraction a;
+    Fraction b;
+    a.numerator = 2;
+    a.denominator = 5;
+    b.numerator = 3;
+    b.denominator = 10;
+
+    Fraction multiply = Multiply(a,b);
+    print_frac_Mult(multiply);
+    return 0;
+}
